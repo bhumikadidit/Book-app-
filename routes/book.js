@@ -26,12 +26,13 @@ router.post("/saveEdited/:_id", function (req, res, next) {
   res.redirect("/book");
 });
 
-router.get("/delete/:_id", function (req, res) {
-    const index = books.findIndex((book) => req.params._id === book._id);
-    if (index !== -1) {
-        books.splice(index, 1); // Remove the book from the array
-    }
-    res.redirect("/book"); // Redirect back to the book list
+router.get('/delete/:id', function(req, res, next){
+    console.log(req.params._id)
+    const book= Book.find((book)=>book._id=== req.params.id)
+    const currIndex= Book.findIndex(book=> req.params._id=== book._id)
+    Book.splice(currIndex, 1);
+    // Redirect to the homepage or send a success message
+    res.redirect('/books'); // Redirect to the homepage
 });
 
 
