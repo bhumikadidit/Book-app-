@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const BookSchema = mongoose.Schema(
     {
         title: {
@@ -22,5 +23,6 @@ const BookSchema = mongoose.Schema(
     timestamps: true,
   }
 )
+
 const Book = mongoose.model("Book", BookSchema)
 module.exports = Book
